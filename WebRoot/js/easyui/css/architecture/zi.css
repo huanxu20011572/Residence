@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+
+.main{ width:1073px; height:100%; background: url(../../../../images/architecture/bj.png)no-repeat; margin:0 auto;}
+.left{ float:left;}
+
+.box1{ width:295px; height:159px; background: url(../../../../images/architecture/right-bj.png) no-repeat;  background-position : 100% 100%; margin-top:33px; padding-right:48px;}
+.box1 h3{ padding-top:8px; padding-left:65px; color:#fff; font-size:20px;}
+.box1 p{ padding-left:65px; padding-top:15px; color:#000; font-weight:bold; font-size:14px;}
+.box1 p b{ color:#99cc33;}
+.box1 hr{ width:289px; margin-left:50px; margin-top:5px;}
+
+.box2{ width:297px; height:368px; background: url(../../../../images/architecture/zuo-kuang.png)no-repeat;  background-position : 100% 100%; margin-top:5px; padding-right:44px;}
+.box2 h3{ padding-top:8px; padding-left:65px; color:#99cb34;font-weight:bold;}
+.box2 p{ padding-left:65px; padding-top:3px; color:#000; font-weight:bold;}
+.box2 hr{ width:289px; margin-left:49px; margin-top:5px;}
+
+.right{ float:right; padding-right:10px;}
+.box4{ width:233px; height:84px; background: url(../../../../images/architecture/left-bj.png)  no-repeat; margin-top:63px; padding-right:104px;}
+.box4 h3{ padding-top:5px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box4 p{ padding-left:23px; padding-top:10px;}
+.box4 p b{ color:#99cc33;}
+
+.box5{ width:233px; height:84px; background: url(../../../../images/architecture/left-bj.png)  no-repeat; margin-top:8px; padding-right:104px;}
+.box5 h3{ padding-top:5px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box5 p{ padding-left:23px; padding-top:10px;}
+.box5 p b{ color:#99cc33;}
+
+.box6{ width:233px; height:84px; background: url(../../../../images/architecture/left-bj.png)  no-repeat; margin-top:8px; padding-right:104px;}
+.box6 h3{ padding-top:5px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box6 p{ padding-left:23px; padding-top:10px;}
+.box6 p b{ color:#99cc33;}
+
+.box7{ width:233px; height:84px; background: url(../../../../images/architecture/left-bj.png)  no-repeat; margin-top:8px; padding-right:104px;}
+.box7 h3{ padding-top:5px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box7 p{ padding-left:23px; padding-top:10px;}
+.box7 p b{ color:#99cc33;}
+
+.box8{ width:233px; height:84px; background: url(../../../../images/architecture/left-bj.png)  no-repeat; margin-top:8px; padding-right:104px;}
+.box8 h3{ padding-top:5px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box8 p{ padding-left:23px; padding-top:10px;}
+.box8 p b{ color:#99cc33;}
+
+.shang{ float:right; width:30px; height:30px; padding-right:205px; padding-top:33px;}
+.xia{ float:left; width:30px; height:30px; padding-left:100px; padding-top:11px;}

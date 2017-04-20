@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+
+.main{ width:1045px; height:576px; background:url(../../../../images/company/beijing.png); no-repeat; margin:0 auto;}
+
+.left{ float:left;}
+
+.box1 h3{ padding-top:125px; padding-left:27px; color:#FFF; font-size:18px; font-weight:bold;}
+.box1 h4{ padding-top:5px; padding-left:27px;  color:#FFF; font-size:18px; font-weight:bold;}
+.box1 p { padding-top:5px; color:#FFF; font-size:14px;}
+
+.box2 h3{ padding-top:15px; padding-left:27px; color:#FFF; font-size:18px; font-weight:bold;}
+.box2 p { padding-top:0px; padding-left:27px; color:#FFF; font-size:14px;}
+
+.box3 h3{ padding-top:15px; padding-left:27px; color:#FFF; font-size:18px; font-weight:bold;}
+.box3 p { padding-top:0px; padding-left:27px; color:#FFF; font-size:14px;}
+
+.box4 h3{ padding-top:15px; padding-left:27px; color:#FFF; font-size:18px; font-weight:bold;}
+.box4 p { padding-top:0px; padding-left:27px; color:#FFF; font-size:14px;}
+
+.box5 h3{ padding-top:15px; padding-left:27px; color:#FFF; font-size:18px; font-weight:bold;}
+.box5 p { padding-top:0px; padding-left:27px; color:#FFF; font-size:14px;}
+
+.right{float:right;}
+
+.box6{ width:214px; height:84px; background:url(../../../../images/company/beijing_07.png) no-repeat; margin-top:13px; padding-right:18px;}
+.box6 h3{ padding-top:10px; padding-left:20px; color:#000; font-size:14px; font-weight:bold;}
+.box6 p{ padding-top:5px; padding-left:20px; font-size:12px;}
+
+.box7{ width:214px; height:84px; background:url(../../../../images/company/beijing_07.png) no-repeat; margin-top:10px; padding-right:18px;}
+.box7 h3{ padding-top:10px; padding-left:20px; color:#000; font-size:14px; font-weight:bold;}
+.box7 p{ padding-top:5px; padding-left:20px; font-size:12px;}
+
+.box8{ width:214px; height:84px; background:url(../../../../images/company/beijing_07.png) no-repeat; margin-top:10px; padding-right:18px;}
+.box8 h3{ padding-top:10px; padding-left:20px; color:#000; font-size:14px; font-weight:bold;}
+.box8 p{ padding-top:5px; padding-left:20px; font-size:12px;}
+
+.box9{ width:214px; height:84px; background:url(../../../../images/company/beijing_07.png) no-repeat; margin-top:10px; padding-right:18px;}
+.box9 h3{ padding-top:10px; padding-left:20px; color:#000; font-size:14px; font-weight:bold;}
+.box9 p{ padding-top:5px; padding-left:20px; font-size:12px;}
+
+.box10{ width:214px; height:84px; background:url(../../../../images/company/beijing_07.png) no-repeat; margin-top:10px; padding-right:18px;}
+.box10 h3{ padding-top:10px; padding-left:20px; color:#000; font-size:14px; font-weight:bold;}
+.box10 p{ padding-top:5px; padding-left:20px; font-size:12px;}
+
+.shang{ padding-top:20px; padding-left:100px;}
+.xia{ padding-top:10px; padding-left:100px;}

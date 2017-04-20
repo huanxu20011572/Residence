@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.haiyi.residence.manageuser.dao.ManageUserDao">  
+  
+  <insert id="insertManageUser"  parameterType="com.haiyi.residence.model.TBManageUser">
+	insert into tb_manageuser(id,uName,password,certificateType,certificateNum,telephone,email,qqNum) 
+		value(#{id},#{uName},#{password},#{certificateType},#{certificateNum},#{telephone},#{email},#{qqNum})
+  </insert>
+  
+  <select id="getManageUserByName" parameterType="java.lang.String" resultType="com.haiyi.residence.model.TBManageUser">  
+      SELECT * FROM tb_manageuser where uName=#{uName}
+  </select>
+  
+    <select id="getManageUserByLogin" parameterType="com.haiyi.residence.model.TBManageUser" resultType="com.haiyi.residence.model.TBManageUser">  
+      SELECT * FROM tb_manageuser where uName=#{uName} and password=#{password}
+  </select>
+  
+    <select id="checkNumber"  parameterType="com.haiyi.residence.model.TBManageUser" resultType="com.haiyi.residence.model.TBManageUser">  
+     SELECT * FROM tb_manageuser 
+     <where>
+     	<if test="certificateNum!=null and certificateNum!=''">
+     	   certificateNum=#{certificateNum}
+     	</if>
+     </where>
+  </select>
+    <update id="updatePass" parameterType="java.lang.String">
+		UPDATE tb_manageuser SET password = #{newpassword1} WHERE 1=1 and password=#{oldpassword} and uName=#{uName}
+  </update>
+    <select id="checkUser"  parameterType="com.haiyi.residence.model.TBManageUser" resultType="com.haiyi.residence.model.TBManageUser">  
+     SELECT * FROM tb_manageuser u
+     <where>
+     	<if test="tb.password!=null and tb.password!=''">
+     	  u.password=#{tb.password}
+     	</if>
+     	<if test="tb.uName!=null and tb.uName!=''">
+     	  and u.uName=#{tb.uName}
+     	</if>
+     </where>
+  </select>
+   <select id="getAll"  resultType="com.haiyi.residence.model.TBManageUser">  
+      SELECT * FROM tb_manageuser limit #{start},#{end}
+  </select>
+   <!-- 查询数据条数 getCount -->
+  <select id="getCount"  resultType="Integer">  
+      SELECT count(*) FROM tb_manageuser
+  </select>
+  
+    <select id="checkUserName"  parameterType="com.haiyi.residence.model.TBManageUser" resultType="com.haiyi.residence.model.TBManageUser">  
+     SELECT * FROM tb_manageuser 
+     <where>
+     	<if test="uName!=null and uName!=''">
+     	   uName=#{uName}
+     	</if>
+     </where>
+  </select>
+</mapper> 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  <mapper namespace="com.haiyi.residence.blog.dao.BlogDao">
+    <resultMap type="com.haiyi.residence.model.Blog" id="BlogResult">
+<!--    	<association property="comment" select="selectComment" column="id" javaType="com.haiyi.residence.model.Comment"></association>-->
+			<collection property="comments" select="selectComment" column="id" ofType="com.haiyi.residence.model.Comment"></collection>
+    </resultMap>
+    <select id="selectComment" parameterType="int" resultType="com.haiyi.residence.model.Comment">  
+        select * from Comment where bid = #{id}  
+    </select>
+    <select id="selectBlog" parameterType="int" resultMap="BlogResult">
+    	select * from Blog b where b.id=#{id}
+    </select>
+  </mapper> 
+

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  <mapper namespace="com.haiyi.residence.residentpopulation.dao.ResidentPopulationDao">  
+<!-- 查询所有 -->
+  <select id="getAll"  resultType="com.haiyi.residence.model.TBResidentPopulation">  
+      SELECT * FROM tb_residentpopulation t 
+      <where>
+      	  and t.criminal='普通人员'
+      </where>
+      limit #{start},#{end}
+  </select>
+<!-- 查询数据条数 getCount -->
+  <select id="getCount"  resultType="Integer">  
+      SELECT count(*) FROM tb_residentpopulation t where t.criminal='普通人员'
+  </select>
+  <select id="getCountCriminal"  resultType="Integer">  
+      SELECT count(*) FROM tb_residentpopulation t where t.criminal!='普通人员'
+  </select>
+<!-- 条件查询(姓名,身份证,小区名称单元号房间号,电话) -->
+    <select id="getResidentPopulationQuery"  parameterType="com.haiyi.residence.model.TBResidentPopulation" resultType="com.haiyi.residence.model.TBResidentPopulation">  
+     	SELECT * FROM tb_residentpopulation 
+	<!--     where name=#{name} and certificateNum=#{certificateNum} and hId=#{hid} and  telephone=#{telephone}-->
+		     <where>
+		     	<if test="tb.name!=null and tb.name!=''">
+		     	   name like '%${tb.name}%' 
+		     	   
+		     	</if>
+		     	<if test="tb.certificateNum!=null and tb.certificateNum!=''">
+		     	  and certificateNum like '%${tb.certificateNum}%'
+		     	</if>
+		     	<if test="tb.telephone!=null and tb.telephone!=''">
+		     	 and  telephone like '%${tb.telephone}%'
+		     	</if>
+		     	<if test="tb.criminal=='000'">
+		     	 and  criminal = '普通人员'
+		     	</if>
+		     	<if test="tb.criminal=='111'">
+		     	 and  criminal!='普通人员'
+		     	</if>
+		     	<if test="tb.criminal!='111' and tb.criminal!='000'">
+		     	 and  criminal = #{tb.criminal}
+		     	</if>
+		     </where>
+	<!--      and t.actualLiveAddr=#{actualLiveAddr} and t.houseRegist=#{houseRegist} and t.telephone=#{telephone}-->
+	<!--        SELECT * FROM tb_residentpopulation t where t.name Like '%${name}%' or t.idNumber Like'%${idNumber}%' or t.actualLiveAddr Like '%${actualLiveAddr}%' or t.houseRegist Like '%${houseRegist}%' or t.telephone Like '%${telephone}%'-->
+  	</select>
+<!-- 通过id查询 -->
+  <select id="getTBResidentPopulationByID" parameterType="java.lang.String" resultType="com.haiyi.residence.model.TBResidentPopulation">  
+      SELECT * FROM tb_residentpopulation where id=#{id}
+  </select>
+<!-- 删除 -->
+  <delete id="deleteResidentPopulation" parameterType="java.lang.String">
+  	  DELETE FROM tb_residentpopulation where id=#{id}
+  </delete>
+  <delete id="deleteResidentPopulationByHid" parameterType="java.lang.String">
+  	  DELETE FROM tb_residentpopulation where hId=#{hId}
+  </delete>
+<!-- 修改 -->
+  <update id="updateResidentPopulation" parameterType="com.haiyi.residence.model.TBResidentPopulation"> 
+		UPDATE tb_residentpopulation SET 
+				hId = #{hid},pType = #{ptype},			
+				name = #{name},oldName = #{oldName}, 				
+				sex = #{sex},nation = #{nation},birthday = #{birthday},				
+				certificateNum = #{certificateNum}, degreeEducation = #{degreeEducation},
+				maritalSta = #{maritalSta}, militarySta =#{militarySta},
+				tempLiveNo = #{tempLiveNo},relation = #{relation},
+				tempLiveDate = #{tempLiveDate},				
+				bloodType = #{bloodType}, height =#{height},
+				occupation = #{occupation}, post = #{post},
+				houseRegist = #{houseRegist}, serviceAddr = #{serviceAddr},
+				landLine = #{landLine},actualLiveAddr = #{actualLiveAddr}, 
+				telephone = #{telephone},personType=#{personType},
+				qqNum = #{qqNum},weChatNum = #{weChatNum}, imgPersonUrl = #{imgPersonUrl},
+				rentDate = #{rentDate},rentReason = #{rentReason}, liveDate = #{liveDate},
+				version = #{version}
+		WHERE id=#{id}
+  </update>
+    <select id="findCriminalPersons"  resultType="com.haiyi.residence.model.TBResidentPopulation">  
+      SELECT * FROM tb_residentpopulation t 
+      <where>
+      	  and t.criminal!='普通人员'
+      </where>
+      limit #{start},#{end}
+  </select>
+ <select id="findFlowPopulationWillExpire"  resultType="com.haiyi.residence.model.TBResidentPopulation" parameterType="com.haiyi.residence.model.TBResidentPopulation">  
+      SELECT * FROM tb_residentpopulation t 
+      <where>
+      	  and t.personType=#{tb.personType} and t.tempEndDateCheck=#{tb.tempEndDateCheck} and t.pType!='1'
+      </where>
+      limit #{start},#{end}
+  </select>
+  <select id="findFlowPopulationnotCheckCount"  resultType="int" parameterType="com.haiyi.residence.model.TBResidentPopulation">  
+      SELECT count(t.Id) FROM tb_residentpopulation t 
+      <where>
+      	  and t.personType=#{tb.personType} and t.tempEndDateCheck=#{tb.tempEndDateCheck} and t.pType!='1'
+      </where>
+  </select>
+  <update id="updateCheckStatus" parameterType="com.haiyi.residence.model.TBResidentPopulation">
+  	 update tb_residentpopulation t set t.tempEndDateCheck=1 where t.id=#{tb.id}
+  </update>
+  <!-- 根据房屋的人员信息 -->
+  <select id="selectHouseOwner" parameterType="int" resultType="com.haiyi.residence.model.TBResidentPopulation">
+  	select * from tb_residentpopulation t
+  	<where>
+  		and t.pType=#{pType} and t.hId=#{hId}
+  	</where>
+  </select>
+  <resultMap type="com.haiyi.residence.model.MiniResidentPopulation" id="residentPopStatistics"></resultMap>
+  <select id="findCriminalPersonsStatistics"  resultMap="residentPopStatistics">  
+      SELECT t.criminal,count(*) as count FROM tb_residentpopulation t where t.criminal!="普通人员"  group by t.criminal 
+  </select>
+   <resultMap type="com.haiyi.residence.model.PopulationStactisc" id="PopStatistics"></resultMap>
+ 
+   <select id="findPopulationPersonsStatistics"  resultMap="PopStatistics">  
+     
+SELECT  t.personType,count(*)as count FROM tb_residentpopulation t GROUP BY t.personType  UNION select '总人口数' as personType, sum(t1.count) as count from (SELECT  t.personType,count(*)as count FROM tb_residentpopulation t GROUP BY t.personType)t1
+
+    </select>
+   <insert id="addResidentPopulation" parameterType="com.haiyi.residence.model.TBResidentPopulation">
+  	insert into tb_residentpopulation(Id,hId,pType,name,oldName,sex,nation,certificateNum,birthday,degreeEducation,
+  									maritalSta,militarySta,tempLiveNo,relation,tempEndDateCheck,tempEndDate,tempLiveDate,
+  									bloodType,height,occupation,post,houseRegist,serviceAddr,landLine,actualLiveAddr,
+  									telephone,qqNum,weChatNum,imgPersonUrl,rentalTime,rentReason,liveDate,version,personType,criminal) 
+  							values(#{rp.id},#{rp.hid},#{rp.ptype},#{rp.name},#{rp.oldName},#{rp.sex},#{rp.nation},
+  									#{rp.certificateNum},#{rp.birthday},#{rp.degreeEducation},#{rp.maritalSta},
+  									#{rp.militarySta},#{rp.tempLiveNo},#{rp.relation},#{rp.tempEndDateCheck},
+  									#{rp.tempEndDate},#{rp.tempLiveDate},#{rp.bloodType},#{rp.height},#{rp.occupation},
+  									#{rp.post},#{rp.houseRegist},#{rp.serviceAddr},#{rp.landLine},#{rp.actualLiveAddr},#{rp.telephone},
+  									#{rp.qqNum},#{rp.weChatNum},#{rp.imgPersonUrl},#{rp.rentalTime},#{rp.rentReason},
+  									#{rp.liveDate},#{rp.version},#{rp.personType},#{rp.criminal})
+  </insert>
+  <!-- 查询所有 -->
+  <select id="getAllInfo"  resultType="com.haiyi.residence.model.TBResidentPopulation">  
+      SELECT * FROM tb_residentpopulation t
+  </select>
+</mapper> 

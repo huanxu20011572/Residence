@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+
+.main{ width:1073px; height:100%; background: url(../../../../images/company/bj.png)no-repeat; margin:0 auto;}
+.left{ float:left;}
+
+.box1{ width:295px; height:172px; background: url(../../../../images/company/right-bj.png) no-repeat;  background-position : 100% 100%; margin-top:13px; padding-right:12px;}
+.box1 h3{ padding-top:10px; padding-left:30px; color:#fff; font-size:20px; margin-top:5px;}
+/* .box1 p{ padding-left:0px; padding-top:11px; color:#000; font-weight:bold; font-size:14px;} */
+.box1 p b{ color:#99cc33;}
+.box1 hr{ width:289px; margin-left:-15px; margin-top:5px;}
+
+.box2{ width:294px; height:368px; background: url(../../../../images/company/zuo-kuang.png)no-repeat;  background-position : 100% 100%; margin-top:5px; padding-right:15px;}
+.box2 h3{ padding-top:5px; padding-left:30px; color:#99cb34; font-weight:bold;}
+.box2 p{ padding-left:30px; padding-top:3px; color:#000; font-weight:bold;}
+.box2 hr{ width:289px; margin-left:15px; margin-top:5px;}
+
+
+.right{ float:right}
+.box4{ width:235px; height:90px; background: url(../../../../images/company/left-bj.png)  no-repeat; margin-top:55px; padding-right:18px;}
+.box4 h3{ padding-top:7px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box4 p{ padding-left:23px; padding-top:4px;}
+.box4 p b{ color:#99cc33;}
+
+.box5{ width:235px; height:90px; background: url(../../../../images/company/left-bj.png)  no-repeat; margin-top:5px; padding-right:18px;}
+.box5 h3{ padding-top:7px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box5 p{ padding-left:23px; padding-top:4px;}
+.box5 p b{ color:#99cc33;}
+
+.box6{ width:235px; height:90px; background: url(../../../../images/company/left-bj.png)  no-repeat; margin-top:5px; padding-right:18px;}
+.box6 h3{ padding-top:7px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box6 p{ padding-left:23px; padding-top:4px;}
+.box6 p b{ color:#99cc33;}
+
+.box7{ width:235px; height:90px; background: url(../../../../images/company/left-bj.png)  no-repeat; margin-top:5px; padding-right:18px;}
+.box7 h3{ padding-top:7px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box7 p{ padding-left:23px; padding-top:4px;}
+.box7 p b{ color:#99cc33;}
+
+.box8{ width:235px; height:90px; background: url(../../../../images/company/left-bj.png)  no-repeat; margin-top:5px; padding-right:18px;}
+.box8 h3{ padding-top:7px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box8 p{ padding-left:23px; padding-top:4px;}
+.box8 p b{ color:#99cc33;}
+
+.shang{ float:right; width:30px; height:30px; padding-right:120px; padding-top:24px;}
+.xia{ float:left; width:30px; height:30px; padding-left:97px; padding-top:5px;}

@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+
+.main{ width:1045px; height:576px; background:url(../../../../images/architecture/beijing.jpg) no-repeat; margin:0 auto;}
+.left{ float:left;}
+
+.box1 h3{ padding-top:110px; padding-left:110px; color:#FFF; font-size:18px;font-weight:bold;}
+.box1 p{ padding-left:110px; padding-top:6px; color:#FFF; font-weight:bold;}
+
+.box2 h3{ padding-top:8px; padding-left:110px; color:#99cb34; font-size:18px;font-weight:bold;}
+.box2 p{ padding-left:110px; padding-top:6px; color:#FFF; font-weight:bold;}
+
+.box3 h3{ padding-top:15px; padding-left:110px; color:#99cb34; font-size:18px;font-weight:bold;}
+.box3 p{ padding-left:110px; padding-top:3px; color:#FFF; font-weight:bold;}
+
+.right{ float:right;}
+.box4{ width:214px; height:84px; background:url(../../../../images/architecture/right-bj.png) no-repeat; margin-top:83px; padding-right:167px;}
+.box4 h3{ padding-top:10px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box4 p{ padding-left:30px; padding-top:15px;}
+.box4 p b{ color:#035e3d;}
+
+.box5{ width:214px; height:84px; background:url(../../../../images/architecture/right-bj.png) no-repeat; margin-top:10px; padding-right:167px;}
+.box5 h3{ padding-top:10px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box5 p{ padding-left:30px; padding-top:10px;}
+
+.box6{ width:214px; height:84px; background:url(../../../../images/architecture/right-bj.png) no-repeat; margin-top:10px; padding-right:167px;}
+.box6 h3{ padding-top:10px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box6 p{ padding-left:30px; padding-top:10px;}
+
+.box7{ width:214px; height:84px; background:url(../../../../images/architecture/right-bj.png) no-repeat; margin-top:10px; padding-right:167px;}
+.box7 h3{ padding-top:10px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box7 p{ padding-left:30px; padding-top:10px;}
+
+.box8{ width:214px; height:84px; background:url(../../../../images/architecture/right-bj.png) no-repeat; margin-top:10px; padding-right:167px;}
+.box8 h3{ padding-top:10px; padding-left:15px; color:#FFF; font-weight:bold;}
+.box8 p{ padding-left:30px; padding-top:10px;}
+
+
+
+.shang{ float:right; width:30px; height:30px; padding-right:257px; padding-top:53px;}
+.xia{ float:left; width:30px; height:30px; padding-left:100px; padding-top:11px;}

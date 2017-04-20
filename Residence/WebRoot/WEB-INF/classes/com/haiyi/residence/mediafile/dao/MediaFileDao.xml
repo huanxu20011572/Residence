@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  <mapper namespace="com.haiyi.residence.mediafile.dao.MediaFileDao">  
+  
+  <insert id="addMediaFile" parameterType="com.haiyi.residence.model.MediaFile">
+  	insert into tb_mediafile(id,modeId,source,fileName,physicalName,relativePathServer,
+  						relativePathApp,length,remark,version,valid,type) 
+  				values(#{mf.id},#{mf.modeId},#{mf.source},#{mf.fileName},#{mf.physicalName},#{mf.relativePathServer},
+  				  		#{mf.relativePathApp},#{mf.length},#{mf.remark},#{mf.version},#{mf.valid},#{mf.type})
+  </insert>
+  <select id="getAll" resultType="com.haiyi.residence.model.MediaFile">
+  	select * from tb_mediafile
+  </select>
+  <update id="updateMediaFile" parameterType="com.haiyi.residence.model.MediaFile">
+  		update tb_mediafile set fileName=#{mf.fileName},physicalName=#{mf.physicalName},length=#{mf.length} where id=#{mf.id}
+  </update>
+    <update id="updateMediaFileWords" parameterType="com.haiyi.residence.model.MediaFile">
+  		update tb_mediafile set modeId=#{mf.modeId},source=#{mf.source},relativePathServer=#{mf.relativePathServer},relativePathApp=#{mf.relativePathApp},
+  		version=#{mf.version},valid=#{mf.valid} where id=#{mf.id}
+  </update>
+  <select id="selectMediaFiles" parameterType="com.haiyi.residence.model.MediaFile" resultType="com.haiyi.residence.model.MediaFile">
+  	select * from tb_mediafile t
+  	<where>
+  		<if test="mf.modeId!=null and mf.modeId!=''">
+  			and t.modeId=#{mf.modeId}
+  		</if>
+  		<if test="mf.source!=null and mf.source!=''">
+  			and t.source=#{mf.source}
+  		</if>
+  	</where>
+  </select>
+</mapper>

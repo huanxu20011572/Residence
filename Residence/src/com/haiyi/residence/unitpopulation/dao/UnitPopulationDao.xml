@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  <mapper namespace="com.haiyi.residence.unitpopulation.dao.UnitPopulationDao">  
+  <select id="getAll"  resultType="com.haiyi.residence.model.TBUnitPopulation">  
+      SELECT * FROM tb_unitpopulation limit #{start},#{end}
+  </select>
+ 
+ <!-- 查询数据条数 getCount -->
+  <select id="getCount"  resultType="Integer">  
+      SELECT count(*) FROM tb_unitpopulation
+  </select>
+ 
+<!-- 条件查询 -->
+  <select id="getUnitPopulationQuery"  parameterType="com.haiyi.residence.model.TBUnitPopulation" resultType="com.haiyi.residence.model.TBUnitPopulation">  
+     SELECT * FROM tb_unitpopulation 
+     <where>
+     	<if test="name!=null and name!=''">
+     	   name  like '%${name}%'
+     	   
+     	</if>
+     	<if test="certificateNum!=null and certificateNum!=''">
+     	  and certificateNum  like '%${certificateNum}%'   
+     	</if>
+     	<if test="id!=null and id!=''">
+     	  and uId like '%${id}%'  
+     	</if>
+     	<if test="telephone!=null and telephone!=''">
+     	 and telephone like '%${telephone}%'  
+     	</if>
+     </where>
+  </select>
+
+<!--根据ID查询-->
+  <select id="getTBUnitPopulationByID" parameterType="java.lang.String" resultType="com.haiyi.residence.model.TBUnitPopulation">  
+      SELECT * FROM tb_unitpopulation where id=#{id}
+  </select>  
+  <select id="findByID" parameterType="java.lang.String" resultType="com.haiyi.residence.model.TBUnitPopulation">  
+      SELECT * FROM tb_unitpopulation where id=#{id}
+  </select>
+<!--删除-->
+  <delete id="deleteUnitPopulation" parameterType="java.lang.String">
+  	  DELETE FROM tb_unitpopulation where id=#{id}
+  </delete>  
+ <!-- 根据UID删除 -->
+    <delete id="deleteUnitPopulationByUId" parameterType="java.lang.String">
+  	  DELETE FROM tb_unitpopulation where uId=#{uId}
+  </delete>  
+<!-- 修改 -->
+  <update id="updateUnitPopulation" parameterType="com.haiyi.residence.model.TBUnitPopulation"> 
+		UPDATE tb_unitpopulation SET 
+				pType = #{ptype},hBuildingNum = #{hbuildingNum},
+				hUnitNum = #{hunitNum},hFloorNum = #{hfloorNum},
+				roomNumber = #{roomNumber},name = #{name},
+				oldName = #{oldName}, birthday = #{birthday},
+				sex = #{sex},nation = #{nation},
+				certificateNum = #{certificateNum},degreeEducation = #{degreeEducation},
+				maritalSta = #{maritalSta}, militarySta =#{ militarySta},
+				bloodType = #{bloodType}, height =#{height},
+				rentDate = #{rentDate},workDate = #{workDate},
+				IdType = #{idType},residenceId = #{residenceId},
+				occupation = #{occupation}, post = #{post},
+				houseRegist = #{houseRegist}, serviceAddr = #{serviceAddr},
+				landLine = #{landLine},actualLiveAddr = #{actualLiveAddr}, 
+				telephone = #{telephone},qqNum = #{qqNum},
+				personType=#{personType},
+				weChatNum = #{weChatNum}, version = #{version}
+		WHERE id=#{id}
+  </update>
+  
+<!-- 根据uid id  查询法人,房主  uId=#{uId} and -->
+  <select id="getLLUPInfo"  resultType="com.haiyi.residence.model.TBUnitPopulation">  
+       SELECT * FROM tb_unitpopulation where id=#{id}
+  </select>
+<!-- 查询单位员工信息 -->
+  <select id="getUnitPopulationInfo"  resultType="com.haiyi.residence.model.TBUnitPopulation">  
+       SELECT * FROM tb_unitpopulation where  uId=#{uId} and pType='3'
+  </select>
+<!-- 查询单位员工同事信息 -->
+  <select id="getunitColleagueInfo"  resultType="com.haiyi.residence.model.TBUnitPopulation">  
+       SELECT * FROM tb_unitpopulation where  uId=#{uId} and id!=#{id} and pType='3'
+  </select>
+  <select id="findImages" parameterType="java.lang.String" resultType="com.haiyi.residence.model.MediaFile">
+  		select * from tb_mediaFile t where t.id=#{id} 
+  </select>
+  <insert id="insertUnitPopulation" parameterType="com.haiyi.residence.model.TBUnitPopulation">
+	INSERT INTO tb_unitpopulation (id,uid,ptype,hbuildingNum,hunitNum,hfloorNum,roomNumber,name,oldName,birthday,sex,nation,certificateNum,
+						degreeEducation,maritalSta,militarySta,bloodType,height,rentDate,workDate,IdType,residenceId,occupation,
+						post,houseRegist,serviceAddr,landLine,actualLiveAddr,telephone,qqNum,weChatNum,imgPersonUrl,version,personType)
+				 VALUES (#{tb.id}, #{tb.uid},#{tb.ptype},#{tb.hbuildingNum},#{tb.hunitNum},#{tb.hfloorNum},#{tb.roomNumber},#{tb.name},
+								#{tb.oldName},#{tb.birthday},#{tb.sex},#{tb.nation},#{tb.certificateNum},#{tb.degreeEducation},
+								#{tb.maritalSta},#{tb.militarySta},#{tb.bloodType},#{tb.height},#{tb.rentDate},#{tb.workDate},#{tb.IdType},
+								#{tb.residenceId},#{tb.occupation},#{tb.post},#{tb.houseRegist},#{tb.serviceAddr},#{tb.landLine},#{tb.actualLiveAddr},
+								#{tb.telephone},#{tb.qqNum},#{tb.weChatNum},#{tb.imgPersonUrl},#{tb.version},#{tb.personType})	
+	</insert> 
+	<!-- 查询所有 -->
+  <select id="getAllList"  resultType="com.haiyi.residence.model.TBUnitPopulation">  
+      SELECT * FROM tb_unitpopulation
+  </select>
+	
+</mapper> 

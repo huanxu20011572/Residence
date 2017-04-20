@@ -1,0 +1,12 @@
+a.l-btn,a.l-btn span.l-btn-left,.icon-search{background: #fafafa;}
+#btnDiv a.l-btn span span.l-btn-icon-left{padding:0px}
+#fmconfirm,#fmconfirm span.l-btn-left,#fmcancel,#fmcancel span.l-btn-left{ background-image: url('../js/easyui/themes/default/images/linkbutton_bg.png');}
+/*#fm a.l-btn{background-image:url(../img/unclick.png);width: 130px;margin-left: 5px;}
+#fm a:hover.l-btn{background-image:url(../img/click.png);background-position:50% 50%}
+#fm a.l-btn span.l-btn-left,#fm a:hover.l-btn span.l-btn-left{background-image:none ;padding: 4px 0px 4px 0px; width: 100%;}
+#fm span.l-btn-text.icon-search.l-btn-icon-left{ background: none;line-height: 16px;width: 100%;text-align: center;}
+#fm.fm1 input.easyui-validatebox{background-color: #ececec;border: 1px solid #ccc;height: 20px}
+#fm.fm1 span.combo{border: 1px solid #ccc;}*/
+form input.easyui-validatebox{background-color: #ececec;border: 1px solid #ccc;height: 20px}
+form span.combo{border: 1px solid #ccc;}
+div.panel-body.panel-body-noheader.layout-body{border:0px solid #fff}

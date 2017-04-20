@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  <mapper namespace="com.haiyi.residence.house.dao.HouseDao">  
+  
+<!--  	<select id="getHIdIdByHname" parameterType="com.haiyi.residence.model.TBHouse" resultType="com.haiyi.residence.model.TBHouse">  -->
+<!--      		SELECT hId FROM tb_house where hName=#{hName}-->
+<!--  	</select>  -->
+
+<!-- 查询房屋hID-->
+  <select id="getHIdByHname"  parameterType="com.haiyi.residence.model.TBHouse" resultType="com.haiyi.residence.model.TBHouse">  
+     SELECT hId FROM tb_house 
+     <where>
+     	<if test="hname!=null and hname!=''">
+     	   hName  like '%${hname}%'
+     	   
+     	</if>
+     	<if test="hbuildingNum!=null and hbuildingNum!=''">
+     	  and hBuildingNum  like '%${hbuildingNum}%'
+     	  
+     	</if>
+     	<if test="hunitNum!=null and hunitNum!=''">
+     	  and hUnitNum  like '%${hunitNum}%'
+     	 
+     	</if>
+     	<if test="hroomNum!=null and hroomNum!=''">
+     	 and hRoomNum  like '%${hroomNum}%'
+     	  
+     	</if>
+     </where>
+  </select>
+   <select id="getAll"  resultType="com.haiyi.residence.model.TBHouse">  
+      SELECT * FROM tb_house limit #{start},#{end}
+  </select>
+  
+  <!-- 查询数据条数 getCount -->
+  <select id="getCount"  resultType="Integer">  
+      SELECT count(*) FROM tb_house
+  </select>
+  
+  <!-- 删除 -->
+  <delete id="deleteHouse" parameterType="java.lang.String">
+  	  DELETE FROM tb_house where hid=#{hid}
+  </delete>
+<!-- 条件查询    房栋号  单元号-->
+
+
+  <select id="houseQuery"  parameterType="com.haiyi.residence.model.TBHouse" resultType="com.haiyi.residence.model.TBHouse">  
+     SELECT * FROM tb_house 
+     <where>
+     	<if test="hbuildingNum!=null and hbuildingNum!=''">
+     	   hbuildingNum like '%${hbuildingNum}%'
+     	    
+     	</if>
+     	<if test="hunitNum!=null and hunitNum!=''">
+     	  and hunitNum like '%${hunitNum}%'
+     	   
+     	</if>
+     </where>
+  </select>
+  
+  
+  
+    <update id="updateHouse" parameterType="com.haiyi.residence.model.TBHouse"> 
+		UPDATE tb_house SET 
+				haddr = #{haddr},hName = #{hname},			
+				hbuildingNum = #{hbuildingNum},hunitNum = #{hunitNum}, 				
+				hfloorNum = #{hfloorNum},hroomNum = #{hroomNum},hstructure = #{hstructure},				
+				hpropertyRight = #{hpropertyRight}, hsecurityStatus = #{hsecurityStatus},
+				rentalTime = #{rentalTime}, rentalArea =#{ rentalArea},
+				rentalRoomNum = #{rentalRoomNum},rentalRoomDate = #{rentalRoomDate},
+				policeOperateArea = #{policeOperateArea},				
+				operateRow = #{operateRow}, chargePoliceNum =#{chargePoliceNum},
+				 version = #{version}
+		WHERE hId=#{hid}
+  </update> 
+  <select id="getHouseInfoByHId"  parameterType="java.lang.String" resultType="com.haiyi.residence.model.TBHouse">  
+     SELECT * FROM tb_house t
+     <where>
+     	and t.hId=#{hId}
+     </where>
+  </select>
+   <select id="getHouseById"  parameterType="java.lang.String" resultType="com.haiyi.residence.model.TBHouse">  
+     SELECT * FROM tb_house t
+     <where>
+     	and t.hId=#{hId}
+     </where>
+  </select>
+   <insert id="addHouse" parameterType="com.haiyi.residence.model.TBHouse">
+  	insert into tb_house(hId,hAddr,hName,hBuildingNum,hUnitNum,hRoomNum,realAddress,hFloorNum,hStructure,
+  						hPropertyRight,hSecurityStatus,rentalTime,rentalArea,rentalRoomNum,rentalRoomDate,
+  						rentType,policeOperateArea,operateRow,chargePoliceNum,landlordId,imageUrls,
+  						layoutDiagramUrl,version) 
+  				values(#{h.hid},#{h.haddr},#{h.hname},#{h.hbuildingNum},#{h.hunitNum},#{h.hroomNum},
+  				  		#{h.realAddress},#{h.hfloorNum},#{h.hstructure},#{h.hpropertyRight},#{h.hsecurityStatus},
+  				  		#{h.rentalTime},#{h.rentalArea},#{h.rentalRoomNum},#{h.rentalRoomDate},#{h.rentType},
+  				  		#{h.policeOperateArea},#{h.operateRow},#{h.chargePoliceNum},#{h.landlordId},
+  				  		#{h.imageUrls},#{h.layoutDiagramUrl},#{h.version})
+  </insert>
+   <select id="getAllInfo"  resultType="com.haiyi.residence.model.TBHouse">  
+      SELECT * FROM tb_house t
+  </select>
+</mapper> 

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+  <mapper namespace="com.haiyi.residence.unit.dao.UnitDao">  
+  
+  
+
+<!--  <select id="getAll"  resultType="com.haiyi.residence.model.TBUnit">  -->
+<!--      SELECT t.id,t.uname,t.uaddr,t.uproperty,t.uoperateRange,t.uoperateArea,t.rent,-->
+<!--      t.LinkNumber,t.ucategory,t.securityPersonId,t.upersonNum,t.utelephone,t.bussinessNum,-->
+<!--      t.regesistMoney,DATE_FORMAT(t.regesistTime, '%Y-%m-%d %k:%i:%s')as regesistTime,-->
+<!--      DATE_FORMAT(t.openningTime, '%Y-%m-%d %k:%i:%s')as openningTime,-->
+<!--      DATE_FORMAT(t.closeTime, '%Y-%m-%d %k:%i:%s')as closeTime,-->
+<!--      t.orgNum,-->
+<!--      t.legalRepresentId,t.landlordId,t.imageUrls,t.layoutDiagramUrl,t.version-->
+<!--      FROM tb_unit t-->
+<!--  </select>-->
+
+  <select id="getAll"  resultType="com.haiyi.residence.model.TBUnit">  
+      SELECT * FROM tb_unit limit #{start},#{end}
+  </select>
+  
+  
+  <!-- 查询数据条数 getCount -->
+  <select id="getCount"  resultType="Integer">  
+      SELECT count(*) FROM tb_unit
+  </select>
+  
+  
+<!-- 条件查询 -->
+    <select id="unitQuery"  parameterType="com.haiyi.residence.model.TBUnit" resultType="com.haiyi.residence.model.TBUnit">  
+     SELECT * FROM tb_unit 
+     <where>
+     	<if test="uname!=null and uname!=''">
+     	   uName   like '%${uname}%'
+     	   
+     	</if>
+     	<if test="bussinessNum!=null and bussinessNum!=''">
+     	  and bussinessNum  like '%${bussinessNum}%'
+     	
+     	</if>
+     	<if test="orgNum!=null and orgNum!=''">
+     	  and orgNum  like '%${orgNum}%'
+     	 
+     	</if>
+     </where>
+  </select>
+  
+  
+	  	
+	<select id="getUnitIdByUname" parameterType="java.lang.String" resultType="java.lang.String">  
+      		SELECT id FROM tb_unit where uName=#{uName}
+  	</select>  
+  	
+	<select id="getUnitIdById" parameterType="java.lang.String" resultType="com.haiyi.residence.model.TBUnit">  
+      		SELECT * FROM tb_unit where Id=#{uId}
+  	</select>  
+  
+  
+  
+<!-- 修改 -->
+    <update id="updateUnit" parameterType="com.haiyi.residence.model.TBUnit"> 
+		UPDATE tb_unit SET 
+				uName = #{uname},
+				uAddr = #{uaddr},
+				uProperty = #{uproperty},
+				uOperateRange = #{uoperateRange},
+				uOperateArea = #{uoperateArea},
+				rent = #{rent},
+				uCategory = #{ucategory},
+				LinkNumber = #{LinkNumber},
+				securityPersonId = #{securityPersonId},
+				uPersonNum = #{upersonNum},
+				uTelephone = #{utelephone},
+				bussinessNum = #{bussinessNum},
+				regesistMoney = #{regesistMoney}, 
+				regesistTime =#{regesistTime},
+				openningTime = #{openningTime},
+				closeTime = #{closeTime},
+				orgNum = #{orgNum},
+<!--			legalRepresentId = #{legalRepresentId}, landlordId = #{landlordId},-->
+<!--			imageUrls = #{imageUrls}, -->
+<!--			layoutDiagramUrl = #{layoutDiagramUrl},-->
+				version = #{version}
+		WHERE id=#{id}
+  </update>
+  
+<!-- 删除 -->
+  <delete id="deleteUnit" parameterType="java.lang.String">
+  	  DELETE FROM tb_unit where id=#{id}
+  </delete>
+  <resultMap type="com.haiyi.residence.model.MediaFile" id="MediaFileResult">
+<!--    	<association property="comment" select="selectComment" column="id" javaType="com.haiyi.residence.model.Comment"></association>-->
+  </resultMap>
+  <!-- 查找照片 -->
+  <select id="findImages" parameterType="java.lang.String" resultType="com.haiyi.residence.model.MediaFile">
+  		select * from tb_mediaFile t where t.id=#{id} 
+  </select>
+  <insert id="insertUnit" parameterType="com.haiyi.residence.model.TBUnit">
+	INSERT INTO tb_unit(id,uname,uaddr,uproperty,uoperateRange,uoperateArea,rent,ucategory,
+								LinkNumber,securityPersonId,upersonNum,utelephone,bussinessNum,regesistMoney,
+								regesistTime,openningTime,closeTime,orgNum,legalRepresentId,landlordId,imageUrls,
+								layoutDiagramUrl,version) 
+				VALUES (#{tb.id}, #{tb.uname},#{tb.uaddr},#{tb.uproperty},#{tb.uoperateRange},#{tb.uoperateArea},#{tb.rent},#{tb.ucategory},
+								#{tb.LinkNumber},#{tb.securityPersonId},#{tb.upersonNum},#{tb.utelephone},#{tb.bussinessNum},#{tb.regesistMoney},
+								#{tb.regesistTime},#{tb.openningTime},#{tb.closeTime},#{tb.orgNum},#{tb.legalRepresentId},#{tb.landlordId},#{tb.imageUrls},
+								#{tb.layoutDiagramUrl},#{tb.version})						
+  </insert> 
+  <!-- 查询所有 -->
+
+  <select id="getAllList"  resultType="com.haiyi.residence.model.TBUnit">  
+      SELECT * FROM tb_unit
+  </select>
+</mapper> 

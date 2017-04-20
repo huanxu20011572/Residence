@@ -1,0 +1,80 @@
+  .nav {
+      	width: 700px;
+        height: 315px;
+        position: relative;
+        margin-top: 2px;
+        overflow: hidden;
+        margin-left: 50px;
+        text-align:center;
+       /* 
+        cursor: pointer;
+        border: 1px solid red;
+       	margin-left: 140px;
+       */
+      }
+      .nav .nav-all {
+        width: auto;
+        position: absolute;
+        left: 50px;
+        /*height: 160px;  */
+      }
+      .nav .nav-i {
+       /* width: 194px;
+        height: 158px;*/
+        background: #fff;
+        border: 1px solid #d8d8d8;
+        float: left;
+        margin: 0px 150px;
+      }
+      .nav .nav-img {
+        text-align: center;
+        /*padding-top: 50px;*/
+      }
+      .nav-img img{
+		/* max-height:310px; 
+		 max-width:300px; 
+		 width:expression(this.width > 300 && this.height < this.width ? 300: true); 
+		 height:expression(this.height > 310 ? 310: true);*/
+		 height:300px;
+		 width:300px;
+	  }
+      /*.nav .nav-name {
+        width: 192px;
+        height: 30px;
+        background: #f2f2f2;
+        margin-top: 33px;
+        line-height: 30px;
+      }
+      .nav .nav-name a {
+        font-size: 16px;
+        font-family: 'Î¢ÈíÑÅºÚ';
+        padding-left: 10px;
+        cursor: pointer;
+      }
+      .nav .nav-name a:hover {
+        color: #4a7abe;
+      }*/
+       .last {
+        position: absolute;
+        left: 0;
+        top: 100px;
+        width:40px;
+        height:40px;
+        background:url(../img/last.png) no-repeat;
+         cursor: pointer;
+      }
+      .next {
+        position: absolute;
+        right: 0;
+        top: 100px;
+        width:40px;
+        height:40px;
+        background:url(../img/next.png) no-repeat;
+         cursor: pointer;
+      }
+       .last:hover {
+        background:url(../img/last_hover.png) no-repeat;
+      }
+       .next:hover {
+        background:url(../img/next_hover.png) no-repeat;
+      }
