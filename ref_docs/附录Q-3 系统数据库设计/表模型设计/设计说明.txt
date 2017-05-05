@@ -1,0 +1,281 @@
+1.分为五张表：
+
+单位人员信息表(法定代表人，单位员工)   
+住房人员信息表（房主和家庭成员和流动人员）   
+单位信息表   					
+住房信息表  						
+管理人员信息表
+
+  人员的登记注册有五种类型 一为房主，一为家庭成员，一为流动人员，一为法定代表人。一为单位员工  
+  
+  我把这五种角色分成了两张表 一张是房主和家庭成员和流动人员一张表  一张是员工信息和法定代表人一张表。
+
+TCP:IP 传输给服务起的格式如下:
+
+<!-- 单位信息 -->
+	<unit>
+		<id></id>
+		<uName></uName>
+		<uAddr></uAddr>
+		<uProperty></uProperty>
+		<uOperateRange></uOperateRange>
+		<uOperateArea></uOperateArea>
+		<uCategory></uCategory>
+		<securityPersonId></securityPersonId>
+		<uPersonNum></uPersonNum>
+		<uTelephone></uTelephone>
+		<bussinessNum></bussinessNum>
+		<regesistMoney></regesistMoney>
+		<regesistTime></regesistTime>
+		<validTime></validTime>
+		<openningTime></openningTime>
+		<orgNum></orgNum>
+		<unitpopulation>
+			<id></id>
+			<name></name>
+			<oldName></oldName>
+			<sex></sex>
+			<nation></nation>
+			<idNumber></idNumber>
+			<degreeEducation></degreeEducation>
+			<maritalSta></maritalSta>
+			<militarySta></militarySta>
+			<bloodType></bloodType>
+			<height></height>
+			<occupation></occupation>
+			<post></post>
+			<houseRegist></houseRegist>
+			<serviceAddr></serviceAddr>
+			<landLine></landLine>			
+			<actualLiveAddr></actualLiveAddr>
+			<telephone></telephone>
+			<qqNum></qqNum>
+			<weChatNum></weChatNum>						
+			<imgpersonB>01010001......</imagepersonB>
+			<pType>1</pType>
+		</unitpopulation> 
+		<residentpopulation>
+			<id></id>
+			<name></name>
+			<oldName></oldName>
+			<sex></sex>
+			<nation></nation>
+			<idNumber></idNumber>
+			<degreeEducation></degreeEducation>
+			<maritalSta></maritalSta>
+			<militarySta></militarySta>
+			<bloodType></bloodType>
+			<height></height>
+			<occupation></occupation>
+			<post></post>
+			<houseRegist></houseRegist>
+			<serviceAddr></serviceAddr>
+			<landLine></landLine>			
+			<actualLiveAddr></actualLiveAddr>
+			<telephone></telephone>
+			<qqNum></qqNum>
+			<weChatNum></weChatNum>						
+			<imgpersonB></imagepersonB>
+			<pType>1</pType>
+		</residentpopulation>
+		<unitpopulation>
+			<id></id>
+			<name></name>
+			<oldName></oldName>
+			<sex></sex>
+			<nation></nation>
+			<idNumber></idNumber>
+			<degreeEducation></degreeEducation>
+			<maritalSta></maritalSta>
+			<militarySta></militarySta>
+			<bloodType></bloodType>
+			<height></height>
+			<occupation></occupation>
+			<post></post>
+			<houseRegist></houseRegist>
+			<serviceAddr></serviceAddr>
+			<landLine></landLine>			
+			<actualLiveAddr></actualLiveAddr>
+			<telephone></telephone>
+			<qqNum></qqNum>
+			<weChatNum></weChatNum>						
+			<imgpersonB>01010001......</imagepersonB>
+			<pType>2</pType>
+		</unitpopulation> 
+		<unitpopulation>
+			<id></id>
+			<name></name>
+			<oldName></oldName>
+			<sex></sex>
+			<nation></nation>
+			<idNumber></idNumber>
+			<degreeEducation></degreeEducation>
+			<maritalSta></maritalSta>
+			<militarySta></militarySta>
+			<bloodType></bloodType>
+			<height></height>
+			<occupation></occupation>
+			<post></post>
+			<houseRegist></houseRegist>
+			<serviceAddr></serviceAddr>
+			<landLine></landLine>			
+			<actualLiveAddr></actualLiveAddr>
+			<telephone></telephone>
+			<qqNum></qqNum>
+			<weChatNum></weChatNum>						
+			<imgpersonB>01010001......</imagepersonB>
+			<pType>2</pType>
+		</unitpopulation> 
+		<unitpopulation>
+			.......
+			.......
+			本单位的所有员工
+		</unitpopulation>
+	</unit>
+	<unit>
+	............
+	这个单位的信息
+	</unit>
+	..........
+		多个单位信息
+	..........
+	
+	
+<!-- 住房信息 -->	
+	<house>
+		<hId></hId>
+		<hAddr></hAddr>
+		<hBuildingNum></hBuildingNum>
+		<hUnitNum></hUnitNum>
+		<hFloorNum></hFloorNum>
+		<hRoomNum></hRoomNum>
+		<hStructure></hStructure>
+		<hPropertyRight></hPropertyRight>
+		<hSecurityStatus></hSecurityStatus>
+		<rentalTime></rentalTime>
+		<rentalArea></rentalArea>
+		<rentalRoomNum></rentalRoomNum>
+		<rentalRoomDate></rentalRoomDate>
+		<policeOperateArea></policeOperateArea>
+		<operateRow></operateRow>
+		<chargePoliceNum></chargePoliceNum>
+		<residentpopulation>
+			<id></id>
+			<name></name>
+			<oldName></oldName>
+			<sex></sex>
+			<nation></nation>
+			<idNumber></idNumber>
+			<degreeEducation></degreeEducation>
+			<maritalSta></maritalSta>
+			<militarySta></militarySta>
+			<bloodType></bloodType>
+			<height></height>
+			<occupation></occupation>
+			<post></post>
+			<houseRegist></houseRegist>
+			<serviceAddr></serviceAddr>
+			<landLine></landLine>			
+			<actualLiveAddr></actualLiveAddr>
+			<telephone></telephone>
+			<qqNum></qqNum>
+			<weChatNum></weChatNum>						
+			<imgpersonB>00101001010101</imagepersonB>
+			<pType>1</pType> 房主
+		</residentpopulation> 
+		<residentpopulation>
+			<id></id>
+			<name></name>
+			<oldName></oldName>
+			<sex></sex>
+			<nation></nation>
+			<idNumber></idNumber>
+			<degreeEducation></degreeEducation>
+			<maritalSta></maritalSta>
+			<militarySta></militarySta>
+			<bloodType></bloodType>
+			<height></height>
+			<occupation></occupation>
+			<post></post>
+			<houseRegist></houseRegist>
+			<serviceAddr></serviceAddr>
+			<landLine></landLine>			
+			<actualLiveAddr></actualLiveAddr>
+			<telephone></telephone>
+			<qqNum></qqNum>
+			<weChatNum></weChatNum>						
+			<imgpersonB>00101001010101</imagepersonB>
+			<pType>2</pType> 家庭成员
+		</residentpopulation> 
+		<residentpopulation>
+			.............
+			<pType>2</pType> 家庭成员
+		</residentpopulation>
+			n个家庭成员
+			............
+		<residentpopulation>
+			<id></id>
+			<name></name>
+			<oldName></oldName>
+			<sex></sex>
+			<nation></nation>
+			<idNumber></idNumber>
+			<degreeEducation></degreeEducation>
+			<maritalSta></maritalSta>
+			<militarySta></militarySta>
+			<bloodType></bloodType>
+			<height></height>
+			<occupation></occupation>
+			<post></post>
+			<houseRegist></houseRegist>
+			<serviceAddr></serviceAddr>
+			<landLine></landLine>			
+			<actualLiveAddr></actualLiveAddr>
+			<telephone></telephone>
+			<qqNum></qqNum>
+			<weChatNum></weChatNum>						
+			<imgpersonB>00101001010101</imagepersonB>
+			<pType>3</pType> 流动人口
+		</residentpopulation>
+		<residentpopulation>
+			..............
+			<pType>3</pType> 流动人口
+		</residentpopulation>
+		 n个流动人口
+		 ............
+	</house>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
